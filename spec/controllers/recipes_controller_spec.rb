@@ -21,10 +21,10 @@ RSpec.describe RecipesController, type: :controller do
     end
   end
 
-  describe 'GET #show' do 
+  describe 'GET #show' do
     it 'returns a successful response' do
       allow(HTTParty).to receive(:get).and_return({ 'meals' => [{ 'idMeal' => '1' }] })
-      
+
       get :show, params: { id: 1 }
       expect(response).to be_successful
     end
