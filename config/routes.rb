@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'recipes/random', to: 'recipes#random'
   get 'recipes/search', to: 'recipes#search'
+  get 'recipes/:id', to: 'recipes#show', as: 'recipe'
 
   # Defines the root path route ("/")
   # root "posts#index"

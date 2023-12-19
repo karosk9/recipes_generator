@@ -16,4 +16,12 @@ RSpec.describe RecipesController, type: :controller do
       expect(response).to be_successful
     end
   end
+
+  describe 'GET #show' do 
+    it 'returns a successful response' do
+      
+      get :show, params: { id: 1 }
+      expect(response).to be_successful
+    end
+  end
 end
