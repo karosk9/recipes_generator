@@ -1,0 +1,7 @@
+<div class="container mt-3">
+  <a href="<%= home_index_path %>" class="btn btn-primary mt-3">Back</a>
+
+  <div class="container mt-5">
+    <%= render partial: 'meal', locals: { meal: @meal['meals'].first } %>
+  </div>
+</div>
