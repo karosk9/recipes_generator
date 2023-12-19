@@ -9,4 +9,11 @@ RSpec.describe RecipesController, type: :controller do
       expect(response).to be_successful
     end
   end
+
+  describe 'GET #search' do
+    it 'returns a successful response' do
+      get :search
+      expect(response).to be_successful
+    end
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'recipes/random', to: 'recipes#random'
+  get 'recipes/search', to: 'recipes#search'
 
   # Defines the root path route ("/")
   # root "posts#index"

@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <a href="<%= home_index_path %>" class="btn btn-primary mt-3">Back</a>
+  
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Instructions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @meals['meals'].each.with_index do |meal, index| %>
+          <% next if index == 0 %>
+          <tr class="clickable-row" data-href="<%= recipe_path(id: meal['idMeal']) %>">
+            <td><%= index %></td>
+            <td><img src="<%= meal["strMealThumb"] %>" class="img-thumbnail"></td>
+            <td><%= meal["strMeal"] %></td>
+            <td><%= meal["strInstructions"]&.truncate(200) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    var rows = document.getElementsByClassName("clickable-row");
+    Array.from(rows).forEach(function(row) {
+      row.addEventListener("mouseover", function() {
+        this.style.fontWeight = "bold";
+      });
+      row.addEventListener("mouseout", function() {
+        this.style.fontWeight = "normal";
+      });
+      row.addEventListener("click", function() {
+        window.location.href = this.dataset.href;
+      });
+    });
+  });
+</script>

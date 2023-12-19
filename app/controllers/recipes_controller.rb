@@ -3,6 +3,10 @@
 class RecipesController < ApplicationController
   def random
     @meal = call_api['meals'].first
+
+  def search
+    @meals = HTTParty.get("https://www.themealdb.com/api/json/v1/1/search.php?f=#{params[:query]}")
+  end
   end
 
   private
