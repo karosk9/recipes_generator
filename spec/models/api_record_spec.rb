@@ -44,15 +44,15 @@ RSpec.describe ApiRecord do
 
   describe '#ingredients' do
     it 'returns meal ingredients' do
-      expect(subject.ingredients(meal)).to eq({
-                                                'Flour' => '100g ',
-                                                'Eggs' => '2 large',
-                                                'Milk' => '300ml ',
-                                                'Sunflower Oil' => '1 tbls',
-                                                'Sugar' => 'to serve',
-                                                'Raspberries' => 'to serve',
-                                                'Blueberries' => 'to serve'
-                                              })
+      expect(subject.ingredients).to eq({
+                                          'Flour' => '100g ',
+                                          'Eggs' => '2 large',
+                                          'Milk' => '300ml ',
+                                          'Sunflower Oil' => '1 tbls',
+                                          'Sugar' => 'to serve',
+                                          'Raspberries' => 'to serve',
+                                          'Blueberries' => 'to serve'
+                                        })
     end
   end
 end
