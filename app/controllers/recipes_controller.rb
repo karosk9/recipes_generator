@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def search
     @meals = ApiRecordCollection.new(
-      records: MealApiClient.new.alphabetic_search(letter: params[:query])
+      records: MealApiClient.new.search(query: params[:query])
     ).records
   end
 

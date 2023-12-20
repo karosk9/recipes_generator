@@ -12,9 +12,15 @@ class MealApiClient
     HTTParty.get("#{MEAL_DB_URL}lookup.php?i=#{id}")['meals'].first
   end
 
-  def alphabetic_search(letter:)
-    HTTParty.get("#{MEAL_DB_URL}search.php?f=#{letter}")['meals']
+  def search(query:)
+    HTTParty.get("#{MEAL_DB_URL}search.php?#{search_by(query)}")['meals']
   rescue URI::InvalidURIError
     raise ForbiddenInputError
+  end
+
+  private
+
+  def search_by(query)
+    query.size == 1 ? "f=#{query}" : "s=#{query}"
   end
 end
