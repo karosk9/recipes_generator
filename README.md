@@ -4,7 +4,7 @@
 
 To get started with this project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+1. Clone the repository: `git@github.com:karosk9/recipes_generator.git`
 2. Install the required dependencies: `bundle install`
 3. install dependencies and prepare the database: `bin/setup`
 4. Start the server: `rails server` or `bin/dev` 
