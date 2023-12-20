@@ -2,16 +2,20 @@
 
 class RecipesController < ApplicationController
   def random
-    @meal = ApiRecord.new(record: MealApiClient.new.random)
+    @meal = MealDbApiRecord.new(record: TheMealDbAdapter.random)
   end
 
   def search
     @meals = ApiRecordCollection.new(
-      records: MealApiClient.new.search(query: params[:query])
+      records: TheMealDbAdapter.search(query: params[:query]), api_record_type: MealDbApiRecord
     ).records
   end
 
   def show
-    @meal = ApiRecord.new(record: MealApiClient.new.meal_by_id(id: params[:id]))
+    @meal = MealDbApiRecord.new(record: TheMealDbAdapter.meal_by_id(id: params[:id]))
+  end
+
+  def random_drink
+    @drink = CoctailDbApiRecord.new(record: TheCoctailDbAdapter.random)
   end
 end
