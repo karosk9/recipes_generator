@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class ApiRecord
+class CoctailDbApiRecord
   def initialize(record:)
     @record = record
   end
 
   def id
-    record['idMeal']
+    record['idDrink']
   end
 
   def origin
@@ -14,11 +14,11 @@ class ApiRecord
   end
 
   def name
-    record['strMeal']
+    record['strDrink']
   end
 
   def image
-    record['strMealThumb']
+    record['strDrinkThumb']
   end
 
   def category
