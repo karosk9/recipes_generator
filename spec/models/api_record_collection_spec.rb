@@ -3,10 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe ApiRecordCollection do
-  let(:meals) { JSON.parse(Rails.root.join('spec/fixtures/recipe_collection.json').read) }
   subject { described_class.new(records: meals) }
 
   describe '#records' do
+    let(:meals) { JSON.parse(Rails.root.join('spec/fixtures/recipe_collection.json').read) }
+
     it 'returns the records array' do
       expect(subject.records).to be_an(Array)
     end
@@ -17,6 +18,16 @@ RSpec.describe ApiRecordCollection do
 
     it 'returns a collection of ApiRecord objects' do
       expect(subject.records.map(&:class).uniq).to eq([ApiRecord])
+    end
+  end
+
+  describe 'error handling' do
+    describe 'invalid search query' do
+      let(:meals) { nil }
+
+      it 'raises an error' do
+        expect { subject }.to raise_error(ApiRecordCollection::InvalidSearchQueryError)
+      end
     end
   end
 end

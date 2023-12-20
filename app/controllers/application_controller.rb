@@ -14,12 +14,19 @@ class ApplicationController < ActionController::Base
 
   rescue_from(*HTTP_ERRORS, with: :handle_api_error)
 
+  rescue_from ApiRecordCollection::InvalidSearchQueryError, with: :handle_invalid_search_query_error
   private
 
   def handle_api_error(error)
     log_error(error)
 
     redirect_to home_index_path, alert: I18n.t('errors.alerts.http_error')
+  end
+
+  def handle_invalid_search_query_error(error)
+    log_error(error)
+
+    redirect_to home_index_path, alert: I18n.t('errors.alerts.invalid_search_query')
   end
 
   def log_error(error)
