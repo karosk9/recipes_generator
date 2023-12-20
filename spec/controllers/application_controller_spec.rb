@@ -32,5 +32,18 @@ RSpec.describe ApplicationController, type: :controller do
       end
     end
 
+    describe 'handle_forbidden_input_error' do
+      controller do
+        def index
+          raise MealApiClient::ForbiddenInputError
+        end
+      end
+
+      it 'redirects to home index with forbidden input alert' do
+        get :index
+        expect(response).to redirect_to(home_index_path)
+        expect(flash[:alert]).to eq(I18n.t('errors.alerts.forbidden_input'))
+      end
+    end
   end
 end

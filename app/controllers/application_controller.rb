@@ -12,15 +12,23 @@ class ApplicationController < ActionController::Base
     SocketError
   ].freeze
 
-  rescue_from(*HTTP_ERRORS, with: :handle_api_error)
+  rescue_from(*HTTP_ERRORS, with: :handle_connection_error)
 
   rescue_from ApiRecordCollection::InvalidSearchQueryError, with: :handle_invalid_search_query_error
+  rescue_from MealApiClient::ForbiddenInputError, with: :handle_forbidden_input_error
+
   private
 
-  def handle_api_error(error)
+  def handle_connection_error(error)
     log_error(error)
 
     redirect_to home_index_path, alert: I18n.t('errors.alerts.http_error')
+  end
+
+  def handle_forbidden_input_error(error)
+    log_error(error)
+
+    redirect_to home_index_path, alert: I18n.t('errors.alerts.forbidden_input')
   end
 
   def handle_invalid_search_query_error(error)

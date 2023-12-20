@@ -32,5 +32,5 @@ en:
   errors:
     alerts:
       http_error: 'External API connection error. Please try again'
-
-
+      invalid_search_query: 'Ensure that the search query is valid. Allowed characters are latin letters a-z. Case insensitive'
+      forbidden_input: 'Scripts are not allowed in the search query'
