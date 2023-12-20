@@ -42,7 +42,7 @@ RSpec.describe RecipesController, type: :controller do
       )
       meal_api_client = instance_double(MealApiClient)
       allow(MealApiClient).to receive(:new).and_return(meal_api_client)
-      allow(meal_api_client).to receive(:alphabetic_search).and_return(collection_of_records)
+      allow(meal_api_client).to receive(:search).and_return(collection_of_records)
 
       get :search
 

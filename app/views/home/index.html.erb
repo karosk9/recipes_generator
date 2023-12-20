@@ -3,7 +3,7 @@
   <div class="card mt-3">
     <div class="card-body">
       <form action="<%= recipes_search_path %>" method="get">
-        <input class="form-control" type="text" name="query" placeholder="What would you like to eat today? Search by letter: 'p', 'a', 'k'">
+        <input class="form-control" type="text" name="query" placeholder="What would you like to eat today? Search by letter: 'p', 'a', 'k' or by product name: 'pancakes">
         <button type="submit" class="btn btn-primary mt-2">Search</button>
       </form>
       <%= link_to 'Surprice me!', recipes_random_path, class: "btn btn-danger mt-2" %>
