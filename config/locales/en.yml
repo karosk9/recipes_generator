@@ -28,4 +28,9 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  hello: 'Hello world'
+  errors:
+    alerts:
+      http_error: 'External API connection error. Please try again'
+
+
