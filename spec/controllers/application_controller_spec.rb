@@ -35,7 +35,7 @@ RSpec.describe ApplicationController, type: :controller do
     describe 'handle_forbidden_input_error' do
       controller do
         def index
-          raise MealApiClient::ForbiddenInputError
+          raise BaseAdapter::ForbiddenInputError
         end
       end
 

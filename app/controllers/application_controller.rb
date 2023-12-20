@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   rescue_from(*HTTP_ERRORS, with: :handle_connection_error)
 
   rescue_from ApiRecordCollection::InvalidSearchQueryError, with: :handle_invalid_search_query_error
-  rescue_from MealApiClient::ForbiddenInputError, with: :handle_forbidden_input_error
+  rescue_from BaseAdapter::ForbiddenInputError, with: :handle_forbidden_input_error
 
   private
 
