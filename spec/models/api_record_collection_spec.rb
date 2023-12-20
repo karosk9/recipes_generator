@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ApiRecordCollection do
-  subject { described_class.new(records: meals) }
+  subject { described_class.new(records: meals, api_record_type: MealDbApiRecord) }
 
   describe '#records' do
     let(:meals) { JSON.parse(Rails.root.join('spec/fixtures/recipe_collection.json').read) }
@@ -17,7 +17,7 @@ RSpec.describe ApiRecordCollection do
     end
 
     it 'returns a collection of ApiRecord objects' do
-      expect(subject.records.map(&:class).uniq).to eq([ApiRecord])
+      expect(subject.records.map(&:class).uniq).to eq([MealDbApiRecord])
     end
   end
 

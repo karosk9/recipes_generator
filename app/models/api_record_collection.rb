@@ -3,9 +3,9 @@
 class ApiRecordCollection
   InvalidSearchQueryError = Class.new(StandardError)
 
-  def initialize(records:)
+  def initialize(records:, api_record_type:)
     @records = records.map do |record|
-      ApiRecord.new(record:)
+      api_record_type.new(record:)
     end
   rescue NoMethodError
     raise InvalidSearchQueryError
