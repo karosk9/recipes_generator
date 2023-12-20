@@ -34,5 +34,13 @@ RSpec.describe MealApiClient, type: :service do
 
       expect(subject.alphabetic_search(letter: 'p')).to eq(api_response['meals'])
     end
+
+    it 'raises error when sctipt tag is passed as an input' do
+      allow(HTTParty).to receive(:get).and_raise(URI::InvalidURIError)
+
+      expect { subject.alphabetic_search(letter: "<script>alert('alert!')</script>") }.to raise_error(
+        MealApiClient::ForbiddenInputError
+      )
+    end
   end
 end
