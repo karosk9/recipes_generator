@@ -11,6 +11,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'layouts/navbar' %>
+    
+    <% flash.each do |key, value| %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= value %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+
+    <div class="container mt-3">
+      <div class="container mt-5">
+        <%= yield %>
+      </div>
+    </div>
+
   </body>
 </html>
