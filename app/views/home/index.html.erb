@@ -2,11 +2,18 @@
   <h1>Welcome to Recipe Roulette</h1>
   <div class="card mt-3">
     <div class="card-body">
+      <h4>What would you like to eat today?</h4>
       <form action="<%= recipes_search_path %>" method="get">
-        <input class="form-control" type="text" name="query" placeholder="What would you like to eat today? Search by letter: 'p', 'a', 'k' or by product name: 'pancakes">
+        <input class="form-control" type="text" name="query" placeholder="Search by letter: 'p', 'a', 'k' or by product name: 'pancakes'">
         <button type="submit" class="btn btn-primary mt-2">Search</button>
       </form>
-      <%= link_to 'Surprice me!', recipes_random_path, class: "btn btn-danger mt-2" %>
     </div>
+  </div>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h4>No ideas? Let fate decide your next culinary masterpiece! </h4>
+      <%= link_to 'Surprice me!', recipes_random_path, class: "btn btn-danger mt-2" %>
+      <%= link_to 'Get something to drink!', recipes_random_drink_path, class: "btn btn-success mt-2" %>
+   </div>
   </div>
 </div>

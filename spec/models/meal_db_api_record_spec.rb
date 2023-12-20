@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ApiRecord do
+RSpec.describe MealDbApiRecord do
   let(:meal) { JSON.parse(Rails.root.join('spec/fixtures/single_meal.json').read) }
   subject { described_class.new(record: meal) }
 

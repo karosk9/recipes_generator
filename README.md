@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+To get started with this project, follow these steps:
 
-* Ruby version
+1. Clone the repository: `git@github.com:karosk9/recipes_generator.git`
+2. Install the required dependencies: `bundle install`
+3. install dependencies and prepare the database: `bin/setup`
+4. Start the server: `rails server` or `bin/dev` 
 
-* System dependencies
+## Basic Functionality
 
-* Configuration
+This project is a recipe generator application. It intergates with [Coctail API](https://www.thecocktaildb.com/api.php) and [Meal API](https://www.themealdb.com/api.php) 
 
-* Database creation
+It allows users to:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Search for recipes by name or first name letter
+* Get random recipe idea
+* Get random drink recommendation
