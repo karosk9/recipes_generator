@@ -17,9 +17,13 @@ class ApplicationController < ActionController::Base
   private
 
   def handle_api_error(error)
-    Rails.logger.error "[ERROR] Failed to connect with API error: #{error.message}"
-    Rails.logger.error error.backtrace
+    log_error(error)
 
     redirect_to home_index_path, alert: I18n.t('errors.alerts.http_error')
+  end
+
+  def log_error(error)
+    Rails.logger.error "[ERROR] Invalid search query error: #{error.message}"
+    Rails.logger.error error.backtrace.join("\n").to_s
   end
 end
