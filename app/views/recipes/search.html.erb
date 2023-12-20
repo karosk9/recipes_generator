@@ -1,29 +1,25 @@
-<div class="container mt-3">
-  <a href="<%= home_index_path %>" class="btn btn-primary mt-3">Back</a>
-  
-  <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Instructions</th>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Instructions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @meals.each.with_index do |meal, index| %>
+        <% next if index == 0 %>
+        <tr class="clickable-row" data-href="<%= recipe_path(id: meal.id) %>">
+          <td><%= index %></td>
+          <td><img src="<%= meal.image %>" class="img-thumbnail"></td>
+          <td><%= meal.name %></td>
+          <td><%= meal.instructions&.truncate(200) %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @meals['meals'].each.with_index do |meal, index| %>
-          <% next if index == 0 %>
-          <tr class="clickable-row" data-href="<%= recipe_path(id: meal['idMeal']) %>">
-            <td><%= index %></td>
-            <td><img src="<%= meal["strMealThumb"] %>" class="img-thumbnail"></td>
-            <td><%= meal["strMeal"] %></td>
-            <td><%= meal["strInstructions"]&.truncate(200) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <script>

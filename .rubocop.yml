@@ -2,5 +2,14 @@ require: rubocop-rails
 
 AllCops:
   NewCops: enable
+
+Layout/LineLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+    
 Style/Documentation:
   Enabled: false
